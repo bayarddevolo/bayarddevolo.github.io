@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorraine Bayard de Volo | Political Sociology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --camel: #B8935F;
+            --navy: #0A1929;
+            --cream: #FAF7F2;
+            --dark-camel: #9D7A52;
+            --light-navy: #1B3A52;
+            --accent: #8B7355;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: var(--navy);
+            background-color: var(--cream);
+        }
+
+        header {
+            background: linear-gradient(to right, var(--navy) 0%, var(--light-navy) 100%);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--camel);
+            font-style: italic;
+        }
+
+        nav {
+            background-color: var(--camel);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Helvetica', sans-serif;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--dark-camel);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--navy);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--camel);
+            font-weight: 400;
+        }
+
+        h3 {
+            color: var(--light-navy);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .research-card {
+            background-color: var(--cream);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--camel);
+        }
+
+        .research-card h4 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .publication {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--camel);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+
+        .publication-details {
+            font-style: italic;
+            color: var(--light-navy);
+            font-size: 0.95rem;
+        }
+
+        .book {
+            background-color: var(--cream);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--navy);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--navy);
+            min-width: 120px;
+        }
+
+        footer {
+            background-color: var(--navy);
+            color: var(--cream);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        a {
+            color: var(--light-navy);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--camel);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+                padding: 0.75rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .research-areas {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lorraine Bayard de Volo</h1>
+        <p>Professor, Department of Sociology | University of Colorado Boulder</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#teaching">Teaching & Leadership</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About</h2>
+            <p>I am a Professor in the Department of Sociology at the University of Colorado Boulder. My research focuses on the intersections of gender, political violence, and social movements, with particular attention to revolutionary processes and international conflict.</p>
+            
+            <p style="margin-top: 1rem;">My work examines how gender shapes and is shaped by political mobilization, war, and revolution, primarily in Latin American contexts—particularly Cuba and Nicaragua—as well as in the United States. I employ an interpretive approach, drawing from extensive archival research, fieldwork, and interviews to understand the complex dynamics of political transformation and conflict.</p>
+        </section>
+
+        <section id="research">
+            <h2>Research</h2>
+            
+            <div class="research-areas">
+                <div class="research-card">
+                    <h4>Revolution & Social Movements</h4>
+                    <p>Examining gendered dimensions of revolutionary mobilization and the role of women in insurgent movements.</p>
+                </div>
+                <div class="research-card">
+                    <h4>War & International Conflict</h4>
+                    <p>Investigating masculinity, agency, and gender dynamics in international crises and military interventions.</p>
+                </div>
+                <div class="research-card">
+                    <h4>Political Sociology</h4>
+                    <p>Analyzing identity politics, political violence, and the intersection of gender with state power.</p>
+                </div>
+            </div>
+
+            <h3>Current Research</h3>
+            <p>My current work centers on the Cuban Missile Crisis, positioning Cuba as an active agent rather than merely a location in this pivotal Cold War confrontation. This research challenges conventional narratives by examining Cuban agency, national identity, and the gendered dimensions of international crisis decision-making. Drawing from Cuban and international archives, I explore how concepts of masculinity, national martyrdom, and revolutionary identity shaped Cuba's role in this near-nuclear confrontation.</p>
+
+            <h3>Regional Focus</h3>
+            <p>My primary geographic area of interest is Latin America, with deep expertise in Cuba and Nicaragua. I also incorporate the United States as a comparative case in my research. This multi-sited approach allows me to examine transnational dynamics of gender, revolution, and political violence across different national contexts.</p>
+
+            <h3>Methodology</h3>
+            <p>I take an interpretive approach to political sociology, combining extensive archival research with fieldwork and interviews. My work draws from sources in multiple countries and languages, including archives in Cuba, Nicaragua, and the United States, supplemented by ethnographic observation and oral histories with political actors and movement participants.</p>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            
+            <h3>Books</h3>
+            
+            <div class="book">
+                <div class="publication-title">Women and the Cuban Insurrection: How Gender Shaped Castro's Victory</div>
+                <div class="publication-details">Cambridge University Press, 2018</div>
+            </div>
+
+            <div class="book">
+                <div class="publication-title">Mothers of Heroes and Martyrs: Gender Identity Politics in Nicaragua, 1979-1999</div>
+                <div class="publication-details">Johns Hopkins University Press, 2001</div>
+            </div>
+
+            <h3>Recent Journal Articles</h3>
+
+            <div class="publication">
+                <div class="publication-title">"Cuba's Missile Crisis and the Logic of National Martyrdom"</div>
+                <div class="publication-details">Security Studies 34:2, 2025, pp. 292-319</div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">"Masculinity and the Cuban Missile Crisis: Gender as Pre-emptive Deterrent"</div>
+                <div class="publication-details">International Affairs 98:4, 2022, pp. 1211-1229</div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">"Tactical Negrificación and White Femininity: Race, Gender, and Internationalism in Cuba's Angolan Mission"</div>
+                <div class="publication-details">Radical History Review 136, 2020, pp. 36-49</div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">"Unmanned? Gender Recalibrations and the Rise of Drone Warfare"</div>
+                <div class="publication-details">Politics & Gender 12:1, 2016, pp. 50-77<br>
+                <span style="font-size: 0.9rem;">Selected for Digital Humanities Project GWonline, Oxford Handbook Gender, War and the Western World since 1600</span></div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">"'I Wish All the Ladies Were Holes in the Road': The U.S. Air Force Academy and the Gendered Continuum of Violence"</div>
+                <div class="publication-details">With Lynn K. Hall. Signs: Journal of Women in Culture and Society 40:4, 2015, pp. 865-889</div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">"Revolution in the Binary? Gender and the Oxymoron of Revolutionary War in Nicaragua and Cuba"</div>
+                <div class="publication-details">Signs: Journal of Women in Culture and Society 37:2, 2012, pp. 413-439</div>
+            </div>
+        </section>
+
+        <section id="teaching">
+            <h2>Teaching & Leadership</h2>
+            
+            <h3>Current Position</h3>
+            <p><strong>Chair and Professor, Department of Sociology</strong><br>
+            University of Colorado Boulder, 2025–present</p>
+
+            <h3>Previous Administrative Roles</h3>
+            <p><strong>Professor, Women and Gender Studies</strong><br>
+            University of Colorado Boulder, 2019–2025</p>
+
+            <p style="margin-top: 1rem;"><strong>Chair, Women and Gender Studies Department</strong><br>
+            University of Colorado Boulder, 2014–2020</p>
+
+            <p style="margin-top: 1rem;"><strong>Director, Latin American Studies Center</strong><br>
+            University of Colorado Boulder, 2011–2014</p>
+
+            <p style="margin-top: 1.5rem;">Prior to joining CU Boulder, I served as Associate Professor and Assistant Professor in the Departments of Political Science and Women's Studies at the University of Kansas from 1998 to 2006.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">Department:</span>
+                    <span>Department of Sociology<br>University of Colorado Boulder, 327 UCB<br>Boulder, CO 80309</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Email:</span>
+                    <span>LBDV at colorado.edu</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lorraine Bayard de Volo. All rights reserved.</p>
+    </footer>
+</body>
+</html>
