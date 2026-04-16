@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nicaragua Research | Lorraine Bayard de Volo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+      background: #fff;
+    }
+
+    /* ── Header / Nav ── */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1.5rem 2rem;
+    }
+
+    header .site-title {
+      font-size: 1.4rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+    }
+
+    header .site-title a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    header .site-title a:hover { text-decoration: underline; }
+
+    nav {
+      background: #3d5166;
+      padding: 0.6rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+    }
+
+    nav a {
+      color: #cdd8e3;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #fff;
+      border-bottom-color: #7fb3d3;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    /* ── Page intro ── */
+    .page-intro {
+      border-left: 4px solid #2c3e50;
+      padding-left: 1.2rem;
+      margin-bottom: 3rem;
+      color: #444;
+    }
+
+    .page-intro h1 {
+      font-size: 1.9rem;
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .page-intro p { font-size: 1rem; color: #555; }
+
+    /* ── Sections ── */
+    section { margin-bottom: 3.5rem; }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: normal;
+      color: #2c3e50;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin: 1.6rem 0 0.4rem;
+    }
+
+    p { margin-bottom: 1rem; color: #444; }
+
+    /* ── Book entry ── */
+    .book {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      background: #f7f9fb;
+      border: 1px solid #dde4ec;
+      border-radius: 4px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .book img {
+      width: 110px;
+      min-width: 110px;
+      height: 160px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+    }
+
+    .book-placeholder {
+      width: 110px;
+      min-width: 110px;
+      height: 160px;
+      background: #dde4ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7a8fa3;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      text-align: center;
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+    }
+
+    .book-info .book-title {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #2c3e50;
+      margin-bottom: 0.3rem;
+    }
+
+    .book-info .publisher {
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ── Article list ── */
+    .article-list { list-style: none; padding: 0; }
+
+    .article-list li {
+      border-bottom: 1px solid #eee;
+      padding: 1rem 0;
+    }
+
+    .article-list li:last-child { border-bottom: none; }
+
+    .article-title {
+      font-style: italic;
+      color: #2c3e50;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .article-meta {
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      color: #777;
+    }
+
+    /* ── Photo gallery ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .photo-item { text-align: center; }
+
+    .photo-item img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      display: block;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 210px;
+      background: #eaeef2;
+      border: 1px dashed #aab8c5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7a8fa3;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .photo-caption {
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 0.4rem;
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: #2c3e50;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #aab8c5;
+    }
+
+    .back-link:hover { color: #000; border-color: #000; }
+
+    /* ── Footer ── */
+    footer {
+      background: #2c3e50;
+      color: #aab8c5;
+      text-align: center;
+      padding: 1.2rem 2rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    footer a { color: #7fb3d3; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .book { flex-direction: column; }
+      .book img, .book-placeholder { width: 100%; min-width: unset; height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="site-title">
+    <a href="https://bayarddevolo.github.io/">Lorraine Bayard de Volo</a>
+  </div>
+</header>
+
+<nav>
+  <a href="https://bayarddevolo.github.io/#about">About</a>
+  <a href="https://bayarddevolo.github.io/#research">Research</a>
+  <a href="https://bayarddevolo.github.io/#publications">Publications</a>
+  <a href="https://bayarddevolo.github.io/#teaching">Teaching &amp; Leadership</a>
+  <a href="https://bayarddevolo.github.io/#contact">Contact</a>
+  <a href="nicaragua.html" class="active">Nicaragua</a>
+</nav>
+
+<main>
+
+  <a class="back-link" href="https://bayarddevolo.github.io/">← Back to main page</a>
+
+  <div class="page-intro">
+    <h1>Nicaragua</h1>
+    <p>
+      Research, books, and articles on gender, revolution, and social movements in Nicaragua,
+      with a focus on the Sandinista period and its aftermath.
+    </p>
+  </div>
+
+  <!-- ── OVERVIEW ── -->
+  <section id="overview">
+    <h2>Overview</h2>
+    <p>
+      My engagement with Nicaragua spans [X] years of fieldwork, archival research, and
+      interviews with political actors and movement participants. My work examines how
+      revolutionary politics shaped — and were shaped by — gender identity, maternal
+      symbolism, and women's political mobilization during and after the 1979 Sandinista
+      revolution.
+    </p>
+    <p>
+      This research draws on ethnographic fieldwork in Nicaragua, oral histories with mothers
+      of fallen combatants, and analysis of state and movement archives. It sits at the
+      intersection of feminist political sociology, Latin American studies, and the
+      anthropology of revolution.
+    </p>
+  </section>
+
+  <!-- ── BOOK ── -->
+  <section id="book">
+    <h2>Book</h2>
+
+    <div class="book">
+      <!-- Replace with: <img src="mothers-cover.jpg" alt="Book cover: Mothers of Heroes and Martyrs"> -->
+      <div class="book-placeholder">[ Book cover<br>mothers-cover.jpg ]</div>
+      <div class="book-info">
+        <p class="book-title">Mothers of Heroes and Martyrs: Gender Identity Politics in Nicaragua, 1979–1999</p>
+        <p class="publisher">Johns Hopkins University Press, 2001</p>
+        <p>
+          This book examines how Nicaraguan mothers of fallen Sandinista combatants were
+          mobilized politically by the revolutionary state, and how they negotiated,
+          contested, and transformed the maternal imagery deployed in their name. Drawing
+          on extensive fieldwork and interviews, it traces the rise and decline of the
+          <em>Mothers of Heroes and Martyrs</em> movement across two decades of revolutionary
+          and post-revolutionary politics.
+        </p>
+        <p>
+          The study reveals how gender identity — particularly idealized motherhood — served
+          as a central resource for political mobilization, and how women activists both
+          embraced and challenged these representations in pursuit of their own agendas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ARTICLES ── -->
+  <section id="articles">
+    <h2>Journal Articles</h2>
+
+    <ul class="article-list">
+
+      <li>
+        <span class="article-title">"Revolution in the Binary? Gender and the Oxymoron of Revolutionary War in Nicaragua and Cuba"</span>
+        <span class="article-meta">
+          <em>Signs: Journal of Women in Culture and Society</em> 37:2, 2012, pp. 413–439
+        </span>
+      </li>
+
+      <!-- Add your Nicaragua-related articles below. Template:
+      <li>
+        <span class="article-title">"Article Title Here"</span>
+        <span class="article-meta">
+          <em>Journal Name</em> Volume:Issue, Year, pp. XXX–XXX
+        </span>
+      </li>
+      -->
+
+      <li>
+        <span class="article-title">"[Article title — add your Nicaragua article here]"</span>
+        <span class="article-meta">
+          <em>Journal Name</em>, Year
+        </span>
+      </li>
+
+      <li>
+        <span class="article-title">"[Article title — add your Nicaragua article here]"</span>
+        <span class="article-meta">
+          <em>Journal Name</em>, Year
+        </span>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ── RESEARCH THEMES ── -->
+  <section id="themes">
+    <h2>Research Themes</h2>
+
+    <h3>Maternal Symbolism and Revolutionary Politics</h3>
+    <p>
+      How did the Sandinista state deploy images of grieving and heroic motherhood to
+      consolidate political support? And how did real mothers — organized into a national
+      movement — respond to, inhabit, and resist these representations?
+    </p>
+
+    <h3>Women's Political Mobilization</h3>
+    <p>
+      The Sandinista revolution produced significant openings for women's political
+      participation, yet also reproduced gendered hierarchies within the revolutionary
+      movement. This tension between liberation and constraint runs through much of my
+      Nicaraguan work.
+    </p>
+
+    <h3>Post-Revolutionary Gender Politics</h3>
+    <p>
+      Following the 1990 electoral defeat of the FSLN, my research tracks how women's
+      organizations and the mothers' movement adapted to — and shaped — the post-revolutionary
+      political landscape across the 1990s.
+    </p>
+
+    <h3>Methodology: Feminist Fieldwork and Oral History</h3>
+    <p>
+      My Nicaragua research is grounded in long-term ethnographic fieldwork, oral histories,
+      and archival sources. I reflect throughout on the politics of research relationships
+      and the methodological challenges of studying politically charged communities.
+    </p>
+  </section>
+
+  <!-- ── PHOTOS ── -->
+  <section id="photos">
+    <h2>From the Field</h2>
+    <div class="photo-grid">
+
+      <div class="photo-item">
+        <!-- Replace src with your image filename, e.g. src="nicaragua-photo-1.jpg" -->
+        <div class="photo-placeholder">[ Photo 1<br>e.g. nicaragua-photo-1.jpg ]</div>
+        <p class="photo-caption">Caption for photo 1. Location, year, and context.</p>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">[ Photo 2<br>e.g. nicaragua-photo-2.jpg ]</div>
+        <p class="photo-caption">Caption for photo 2. Location, year, and context.</p>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">[ Photo 3<br>e.g. nicaragua-photo-3.jpg ]</div>
+        <p class="photo-caption">Caption for photo 3. Location, year, and context.</p>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">[ Photo 4<br>e.g. nicaragua-photo-4.jpg ]</div>
+        <p class="photo-caption">Caption for photo 4. Location, year, and context.</p>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">[ Photo 5<br>e.g. nicaragua-photo-5.jpg ]</div>
+        <p class="photo-caption">Caption for photo 5. Location, year, and context.</p>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder">[ Photo 6<br>e.g. nicaragua-photo-6.jpg ]</div>
+        <p class="photo-caption">Caption for photo 6. Location, year, and context.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    <a href="https://bayarddevolo.github.io/">Lorraine Bayard de Volo</a> &nbsp;|&nbsp;
+    Department of Sociology, University of Colorado Boulder &nbsp;|&nbsp;
+    LBDV at colorado.edu
+  </p>
+  <p style="margin-top: 0.4rem;">© 2026 Lorraine Bayard de Volo. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
