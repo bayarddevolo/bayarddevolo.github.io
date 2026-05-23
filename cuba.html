@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuba Research | Lorraine Bayard de Volo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design tokens (match main site) ── */
+    :root {
+      --navy:        #1e3352;
+      --navy-dark:   #152540;
+      --navy-mid:    #264170;
+      --camel:       #b8924a;
+      --camel-light: #d4ac6e;
+      --cream:       #f8f3ea;
+      --cream-dark:  #ede5d5;
+      --text:        #2c2c2c;
+      --text-light:  #555;
+      --white:       #ffffff;
+      --shadow:      rgba(30, 51, 82, 0.12);
+      --radius:      6px;
+      --max-width:   860px;
+    }
+
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    a { color: var(--navy-mid); text-decoration: underline; }
+    a:hover { color: var(--camel); }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-mid) 100%);
+      color: var(--white);
+      padding: 2.4rem 1.5rem 1.8rem;
+      text-align: center;
+      border-bottom: 4px solid var(--camel);
+    }
+
+    header h1 {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.3rem;
+    }
+
+    header .subtitle {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--cream-dark);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--navy);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+      border-bottom: 2px solid var(--camel);
+    }
+
+    nav a {
+      color: var(--cream-dark);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover        { background: var(--navy-mid); color: var(--white); }
+    nav a.active       { background: var(--camel); color: var(--white); }
+
+    /* ── Back link ── */
+    .back-link {
+      max-width: var(--max-width);
+      margin: 1.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+
+    .back-link a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--navy-mid);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+    .back-link a:hover { color: var(--camel); }
+
+    /* ── Page container ── */
+    .page-container {
+      max-width: var(--max-width);
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Section headings ── */
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 2.5rem 0 0.9rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--camel);
+    }
+
+    h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy-mid);
+      margin: 1.6rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; }
+
+    /* ── Intro block ── */
+    .intro {
+      background: var(--white);
+      border-left: 4px solid var(--camel);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    /* ── Book section ── */
+    .book-card {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px var(--shadow);
+      margin-bottom: 1.2rem;
+    }
+
+    .book-card img {
+      width: 140px;
+      min-width: 140px;
+      border-radius: 4px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+
+    .book-card .book-info h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+    }
+
+    .book-meta {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 0.7rem;
+    }
+
+    @media (max-width: 560px) {
+      .book-card { flex-direction: column; align-items: center; text-align: center; }
+      .book-card img { width: 120px; }
+    }
+
+    /* ── Articles ── */
+    .article-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .article-list li {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 0.9rem 1.1rem;
+      box-shadow: 0 1px 6px var(--shadow);
+      border-left: 3px solid var(--camel-light);
+    }
+
+    .article-list li a {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    .article-list li a:hover { color: var(--camel); }
+
+    .article-list .journal-info {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-top: 0.2rem;
+    }
+
+    /* ── Current research callout ── */
+    .research-callout {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+      color: var(--cream);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 3px 12px var(--shadow);
+    }
+
+    .research-callout h3 {
+      color: var(--camel-light);
+      margin-top: 0;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .research-callout p { color: var(--cream); margin-bottom: 0; line-height: 1.7; }
+
+    /* ── Photo gallery ── */
+    .gallery-section { margin-top: 2rem; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.4rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 10px var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px var(--shadow);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 0.6rem 0.85rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.5;
+      border-top: 2px solid var(--cream-dark);
+    }
+
+    /* ── Placeholder image style (shown when img fails to load or before real images are added) ── */
+    .gallery-item .img-placeholder {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--camel-light);
+      font-size: 0.8rem;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy-dark);
+      color: var(--cream-dark);
+      text-align: center;
+      padding: 1.4rem 1rem;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      border-top: 3px solid var(--camel);
+      margin-top: 3rem;
+    }
+
+    footer a { color: var(--camel-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- ══ Header ══ -->
+<header>
+  <h1>Lorraine Bayard de Volo</h1>
+  <p class="subtitle">Professor, Department of Sociology | University of Colorado Boulder</p>
+</header>
+
+<!-- ══ Nav ══ -->
+<nav>
+  <a href="https://bayarddevolo.github.io/#about">About</a>
+  <a href="https://bayarddevolo.github.io/#research">Research</a>
+  <a href="https://bayarddevolo.github.io/#publications">Publications</a>
+  <a href="https://bayarddevolo.github.io/#contact">Contact</a>
+  <a href="https://bayarddevolo.github.io/nicaragua.html">Nicaragua</a>
+  <a href="cuba.html" class="active">Cuba</a>
+</nav>
+
+<!-- ══ Back link ══ -->
+<div class="back-link">
+  <a href="https://bayarddevolo.github.io/">← Back to main page</a>
+</div>
+
+<!-- ══ Main content ══ -->
+<main class="page-container">
+
+  <h2>Cuba</h2>
+
+  <div class="intro">
+    <p>My Cuba research spans two interconnected projects: a historical study of women's role in the 1950s insurrection that brought Castro to power, and an ongoing investigation of Cuba's active—and largely overlooked—agency in the 1962 Cuban Missile Crisis. Drawing on extensive archival research in Cuban and international archives, ethnographic fieldwork, and interviews with political actors, this work examines how gender, revolutionary identity, and national martyrdom have shaped Cuban politics and international conflict from the insurrection to the Cold War.</p>
+  </div>
+
+  <!-- Current Research Callout -->
+  <div class="research-callout">
+    <h3>Current Research Project</h3>
+    <p>My current work repositions Cuba as an active agent—rather than a mere backdrop or pawn—in the Cuban Missile Crisis. Drawing from Cuban, Soviet, American, and other international archives, I examine how concepts of masculinity, national martyrdom, and revolutionary identity shaped Cuba's diplomatic posture and decision-making during this near-nuclear confrontation. This project challenges conventional two-superpower narratives and restores Cuban voices and perspectives to the historical record.</p>
+  </div>
+
+  <!-- ══ Book ══ -->
+  <h2>Book</h2>
+
+  <div class="book-card">
+    <a href="https://www.cambridge.org/core/books/women-and-the-cuban-insurrection/C1A3DA9D2F0E935C18EA9D6C73F18A40" target="_blank" rel="noopener">
+      <!-- Replace src with your actual book cover image, e.g. src="WCIBookCover.jpg" -->
+      <img
+        src="WCIBookCover.jpg"
+        alt="Book cover: Women and the Cuban Insurrection"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="img-placeholder" style="display:none;">Women and the Cuban Insurrection<br/>(add cover image: WCIBookCover.jpg)</div>
+    </a>
+    <div class="book-info">
+      <h3>
+        <a href="https://www.cambridge.org/core/books/women-and-the-cuban-insurrection/C1A3DA9D2F0E935C18EA9D6C73F18A40" target="_blank" rel="noopener">
+          Women and the Cuban Insurrection: How Gender Shaped Castro's Victory
+        </a>
+      </h3>
+      <p class="book-meta">Cambridge University Press, 2018</p>
+      <p>In <em>Women and the Cuban Insurrection</em>, I show how women were essential to the 26th of July Movement's success—not only as combatants but as organizers, fundraisers, smugglers, and couriers operating in both urban and rural networks. Rather than treating women's participation as a footnote to the male guerrilla narrative, the book foregrounds gender as a constitutive dimension of the insurrection itself. Through extensive archival research and oral histories with surviving participants, I demonstrate that gender ideology both constrained and enabled women's political action, as the movement simultaneously relied on and downplayed women's contributions. The book also examines how the post-revolutionary state subsequently managed and memorialized women's roles, shaping what could be remembered and claimed.</p>
+    </div>
+  </div>
+
+  <!-- ══ Journal Articles & Book Chapters ══ -->
+  <h2>Journal Articles &amp; Book Chapters</h2>
+
+  <ul class="article-list">
+
+    <li>
+      <a href="https://www.tandfonline.com/doi/full/10.1080/09636412.2025.2467757" target="_blank" rel="noopener">
+        "Cuba's Missile Crisis and the Logic of National Martyrdom"
+      </a>
+      <div class="journal-info"><em>Security Studies</em> 34:2, 2025, pp. 292–319</div>
+    </li>
+
+    <li>
+      <a href="https://academic.oup.com/ia/article/98/4/1211/6615651" target="_blank" rel="noopener">
+        "Masculinity and the Cuban Missile Crisis: Gender as Pre-emptive Deterrent"
+      </a>
+      <div class="journal-info"><em>International Affairs</em> 98:4, 2022, pp. 1211–1229</div>
+    </li>
+
+    <li>
+      <a href="https://doi.org/10.1215/01463373-7836186" target="_blank" rel="noopener">
+        "Tactical Negrificación and White Femininity: Race, Gender, and Internationalism in Cuba's Angolan Mission"
+      </a>
+      <div class="journal-info"><em>Radical History Review</em> 136, 2020, pp. 36–49</div>
+    </li>
+
+    <li>
+      <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/661727" target="_blank" rel="noopener">
+        "Revolution in the Binary? Gender and the Oxymoron of Revolutionary War in Nicaragua and Cuba"
+      </a>
+      <div class="journal-info"><em>Signs: Journal of Women in Culture and Society</em> 37:2, 2012, pp. 413–439</div>
+    </li>
+
+  </ul>
+
+  <!-- ══ From the Field ══ -->
+  <h2>From the Field</h2>
+
+  <p>Photos from archival research and fieldwork in Cuba.</p>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <!-- Replace src with your actual photo, e.g. src="cuba1.jpg" -->
+      <img src="cuba1.jpg" alt="Havana archive" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="img-placeholder" style="display:none;">Add photo: cuba1.jpg</div>
+      <div class="gallery-caption">Caption for photo 1 — replace with your own description.</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="cuba2.jpg" alt="Cuban fieldwork" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="img-placeholder" style="display:none;">Add photo: cuba2.jpg</div>
+      <div class="gallery-caption">Caption for photo 2 — replace with your own description.</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="cuba3.jpg" alt="Cuban archive" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="img-placeholder" style="display:none;">Add photo: cuba3.jpg</div>
+      <div class="gallery-caption">Caption for photo 3 — replace with your own description.</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="cuba4.jpg" alt="Cuban street scene" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="img-placeholder" style="display:none;">Add photo: cuba4.jpg</div>
+      <div class="gallery-caption">Caption for photo 4 — replace with your own description.</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="cuba5.jpg" alt="Interviews in Cuba" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="img-placeholder" style="display:none;">Add photo: cuba5.jpg</div>
+      <div class="gallery-caption">Caption for photo 5 — replace with your own description.</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="cuba6.jpg" alt="Cuban Missile Crisis archival document" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="img-placeholder" style="display:none;">Add photo: cuba6.jpg</div>
+      <div class="gallery-caption">Caption for photo 6 — replace with your own description.</div>
+    </div>
+
+  </div><!-- /gallery-grid -->
+
+</main>
+
+<!-- ══ Footer ══ -->
+<footer>
+  <a href="https://bayarddevolo.github.io/">Lorraine Bayard de Volo</a> |
+  Department of Sociology, University of Colorado Boulder |
+  LBDV at colorado.edu
+  <br/>
+  &copy; 2026 Lorraine Bayard de Volo. All rights reserved.
+</footer>
+
+</body>
+</html>
